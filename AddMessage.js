@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name       AddMessage
 // @version    0.1
-// @description  enter something useful
+// @description  Script to add a [m] tag next to player names for quick messaging.
 // @include      http://fallensword.com/*
 // @include      http://www.fallensword.com/*
-// @copyright  2012+, You
+// @copyright  2012+, aa0007
 // @require http://code.jquery.com/jquery-1.10.2.min.js
 // ==/UserScript==
 
