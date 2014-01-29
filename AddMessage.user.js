@@ -6,6 +6,7 @@
 // @include      http://www.fallensword.com/*
 // @copyright  2012+, aa0007
 // @require http://code.jquery.com/jquery-1.10.2.min.js
+// @downloadURL https://fs-quickmsg.googlecode.com/git/AddMessage.user.js
 // ==/UserScript==
 
 $( function() {
