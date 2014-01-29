@@ -9,6 +9,7 @@
 // ==/UserScript==
 
 $( function() {
+
 	$('[href *= "index.php?cmd=profile&player_id="]').each(function(){
 		$(this).parentsUntil('[style="display: block"]').last().attr('cellpadding',0);
 		$(this).parentsUntil('[cellpadding]').last().attr('cellpadding',0);
@@ -18,7 +19,9 @@ $( function() {
 	$('[href *= "index.php?cmd=profile&player_id="]')
 	.each(function(){
 		if (($(this).html().length < 30) && ($(this).parent().parent().parent().parent().attr('class') != 'player-list') ){
-			var playerName = String($(this).html());
+						
+			var playerName = $($(this).html()).text();
+
 			var argumentMsg = '<a href="javascript:openQuickMsgDialog(' + '&quot;' + playerName + '&quot;' + ');" style="font-size:10px; text-decoration: none"> [m]</a>'
 			//var argumentBuff = '<a href="javascript:openWindow(' + '&quot;' + 'index.php?cmd=quickbuff&t=' + playerName + '&quot;' + ', \'fsQuickBuff\', 618, 1000, \',scrollbars\');" style="font-size:10px; text-decoration: none">[b]</a>'
 			var argument = argumentMsg;// + argumentBuff;
