@@ -18,32 +18,26 @@ $( function() {
 	GM_addStyle(GM_getResourceText('qtipCSS'));
 
 	var makeConfig = function(jqObject){
-
-		if (jqObject.html().length < 30)
-			var playerName = $(jqObject.html()).text();
-		else
-			return null;
 		
+		var playerName = $(jqObject).text() || -1;
+		var arrLen = jqObject.attr('href').split('player_id=').length || -1;
+		var playerID = 0;
+		if (arrLen > 0){
+			playerID = jqObject.attr('href').split('player_id=')[arrLen -1];
+		}
+
+		var argumentMsg = '<a href="javascript:openQuickMsgDialog(' + '&quot;' + playerName + '&quot;' + ');" style="font-size:10px; "> [m] </a>';
+		var argumentBuff = '<a href="javascript:openWindow(' + '&quot;' + 'index.php?cmd=quickbuff&t=' + playerName + '&quot;' + ', \'fsQuickBuff\', 618, 1000, \',scrollbars\');" style="font-size:10px;"> [b] </a>';
+
+		var finalText = '<div style = "text-align: center;">' + playerName + '<br/>' + 'PID: ' + playerID + '<br/>' + '<div style = color: white !important;">' +  argumentMsg + argumentBuff + '</div>' + '</div>';
+
 		var qtipContent = {
 			overwrite: false,
-			content: {
-				text: playerName,
-				attr: 'error',
-			},
-			position: {
-				my: 'bottom center',
-				at: 'top center'
-			},
-			show: {
-				delay: 200
-			},
-			hide: {
-				fixed: true,
-				delay: 200
-			},
-			style: {
-				classes: 'qtip-tipsy qtip-shadow'
-			}
+			content: { text: finalText, attr: 'error' },
+			position: { my: 'bottom left', at: 'top left', adjust: { 	method: 'shift none' } },
+			show: { delay: 90 },
+			hide: { fixed: true, delay: 200 },
+			style: { classes: 'qtip-tipsy qtip-shadow' }
 		}
 
 		return qtipContent;
@@ -51,30 +45,10 @@ $( function() {
 
 	$('[href *= "index.php?cmd=profile&player_id="]').each(function(){		
 		var config = makeConfig($(this));
-		$(this).qtip(config);
+		if (config.content.text == -1)
+			return;
+		else if (config.content.text != -1){
+			$(this).qtip(config);
+		}		
 	});
-});
-
-
-
-$( function() {
-
-        $('[href *= "index.php?cmd=profile&player_id="]').each(function(){
-                $(this).parentsUntil('[style="display: block"]').last().attr('cellpadding',0);
-                $(this).parentsUntil('[cellpadding]').last().attr('cellpadding',0);
-        });
-
-
-        $('[href *= "index.php?cmd=profile&player_id="]')
-        .each(function(){
-                if (($(this).html().length < 30) && ($(this).parent().parent().parent().parent().attr('class') != 'player-list') ){
-                                                
-                        var playerName = $($(this).html()).text();
-
-                        var argumentMsg = '<a href="javascript:openQuickMsgDialog(' + '&quot;' + playerName + '&quot;' + ');" style="font-size:10px; text-decoration: none"> [m]</a>'
-                        //var argumentBuff = '<a href="javascript:openWindow(' + '&quot;' + 'index.php?cmd=quickbuff&t=' + playerName + '&quot;' + ', \'fsQuickBuff\', 618, 1000, \',scrollbars\');" style="font-size:10px; text-decoration: none">[b]</a>'
-                        var argument = argumentMsg;// + argumentBuff;
-                        $(this).after(argument);
-                }
-        });
 });
