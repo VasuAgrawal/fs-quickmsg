@@ -30,14 +30,14 @@ $( function() {
 		var argumentST = '<span id = "' + stID + '">[ST]</span>'
 		var argumentSend = '<span id = "' + sendID + '">[T]</span>'
 
-		var contentText = '<style: "text-align: center;">' + player[0] + '<br/>' + argumentMsg + argumentBuff + argumentAH + argumentST + argumentSend + '</style>'; 
+		var contentText = '<div style = "text-align: center">' + player[0] + '<br/>' + argumentMsg + argumentBuff + argumentAH + argumentST + argumentSend + '</div>'; 
 		api.set('content.text',contentText)
 	
 		$('#' + msgID).on('click', function(){openQuickMsgDialog(player[0]);});
 		$('#' + buffID).on('click', function(){openWindow('index.php?cmd=quickbuff&t=' + player[0],'fsQuickBuff', 618, 1000,'scrollbars');});
-		$('#' + ahID).on('click', window.location.assign('http://fallensword.com/index.php?cmd=auctionhouse&type=-3&tid=' + player[1]));
-		$('#' + stID).on('click', window.location.assign('http://fallensword.com/index.php?cmd=trade&subcmd=createsecure&target_username=' + player[0]));
-		$('#' + sendID).on('click', window.location.assign('http://fallensword.com/index.php?cmd=trade&target_player=' + player[0]));
+		$('#' + ahID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=auctionhouse&type=-3&tid=' + player[1]);});
+		$('#' + stID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=trade&subcmd=createsecure&target_username=' + player[0]);});
+		$('#' + sendID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=trade&target_player=' + player[0]);});
 	}
 
 	var makeConfig = function(jqObject){
