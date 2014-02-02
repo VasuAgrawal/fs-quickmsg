@@ -22,8 +22,8 @@ $( function() {
 		var msgID = 'msg' + player[0] + player[1];
 		var buffID = 'buff' + player[0] + player[1];
 		var ahID = 'ah' + player[0] + player[1];
-		var stID = 'ah' + player[0] + player[1];
-		var sendID = 'ah' + player[0] + player[1];
+		var stID = 'st' + player[0] + player[1];
+		var sendID = 'send' + player[0] + player[1];
 		var argumentMsg = '<span id = "' + msgID + '">[M]</span>'
 		var argumentBuff = '<span id = "' + buffID + '">[B]</span>'
 		var argumentAH = '<span id = "' + ahID + '">[AH]</span>'
