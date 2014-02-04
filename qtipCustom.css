@@ -32,7 +32,7 @@
 		position: relative;
 		padding: 5px 9px;
 		overflow: hidden;
-		font-weight: normal;
+		font-weight: lighter;
 
 		text-align: left;
 		word-wrap: break-word;
@@ -157,7 +157,8 @@
 	color: white;
 	border: 0 solid transparent;
 
-	font-size: 11px;
+	font-size: 10px;
+	font-weight: lighter;
 	font-family: 'Lucida Grande', sans-serif;
 	line-height: 16px;
 }
@@ -169,6 +170,7 @@
 
 	.qtip-tipsy .qtip-content{
 		padding: 6px 10px;
+		font-weight: lighter;
 	}
 	
 	.qtip-tipsy .qtip-icon{
