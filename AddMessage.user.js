@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       FallenSwordQuickMsg
-// @version    1.01
+// @version    1.02
 // @description  Script to add some quick links in a tooltip when hovering over a player's name. This will also show some data about the player.
 // @include      http://fallensword.com/*
 // @include      http://www.fallensword.com/*
@@ -9,6 +9,7 @@
 // @require http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.js
 // @resource qtipCSS https://fs-quickmsg.googlecode.com/git/qtip.css
 // @downloadURL https://fs-quickmsg.googlecode.com/git/AddMessage.user.js
+// @updateURL https://fs-quickmsg.googlecode.com/git/AddMessage.user.js
 // @grant GM_addStyle
 // @grant GM_getResourceText
 // ==/UserScript==
