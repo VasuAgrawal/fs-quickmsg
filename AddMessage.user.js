@@ -38,7 +38,13 @@ $( function() {
 		var argumentSeen = '<div class = "' + seenID + '"></div>';
 		var argumentAjax = '<div class = "' + ajaxID + '"></div>';
 
+		var isMe = false;
 		var profileURL = 'http://fallensword.com/index.php?cmd=profile&player_id=' + player[1];
+
+		if ($('#statbar-character').html() == player[0]){
+			profileURL = 'http://fallensword.com/index.php?cmd=profile';
+			isMe = true;
+		}		
 
 		var contentText = '<div style = "text-align: center">' + argumentPlayer + argumentMsg + argumentBuff + argumentAH + argumentST + argumentSend + '</div>' + argumentSeen + argumentAjax;
 		api.set('content.text',contentText);
@@ -71,17 +77,19 @@ $( function() {
 				} 
 				else {
 					
-					var timeSeenArr = $(data).find(':contains("Last Activity")').last().html().split(/\D/);
-					var timeSeen = new Array();
-					var tempIndex = 0;
-					for (var i = 0, arrLen = timeSeenArr.length; i< arrLen; i++){
-						if (timeSeenArr[i] != ''){
-							timeSeen[tempIndex] = timeSeenArr[i];
-							tempIndex++;
+					if (!isMe){
+						var timeSeenArr = $(data).find(':contains("Last Activity")').last().html().split(/\D/);
+						var timeSeen = new Array();
+						var tempIndex = 0;
+						for (var i = 0, arrLen = timeSeenArr.length; i< arrLen; i++){
+							if (timeSeenArr[i] != ''){
+								timeSeen[tempIndex] = timeSeenArr[i];
+								tempIndex++;
+							}
 						}
+						var seenContent = '<div style = "text-align: center">Last Seen: <span style = "font-weight: normal">' + timeSeen[0] + 'd ' + timeSeen[1] + 'h ' + timeSeen[2] + 'm ' + timeSeen[3] + 's </span></div>';
+						$('.' + seenID).html(seenContent);
 					}
-					var seenContent = '<div style = "text-align: center">Last Seen: <span style = "font-weight: normal">' + timeSeen[0] + 'd ' + timeSeen[1] + 'h ' + timeSeen[2] + 'm ' + timeSeen[3] + 's </span></div>';
-					$('.' + seenID).html(seenContent);
 
 					var stats = Array();
 
