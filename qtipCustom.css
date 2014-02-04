@@ -134,9 +134,7 @@
 }
 
 /* Add rounded corners to your tooltips in: FF3+, Chrome 2+, Opera 10.6+, IE9+, Safari 2+ */
-.qtip-rounded,
-.qtip-tipsy2,
-.qtip-bootstrap{
+.qtip-fsquickmsgCustom{
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -148,8 +146,8 @@
 	border-radius: 4px 4px 0 0;
 }
 
-/* Tipsy style */
-.qtip-tipsy2{
+/* fsquickmsgCustom style */
+.qtip-fsquickmsgCustom{
 	background: black;
 	background: rgba(0, 0, 0, .87);
 
@@ -160,22 +158,22 @@
 	line-height: 12px;
 }
 
-	.qtip-tipsy2 .qtip-titlebar{
+	.qtip-fsquickmsgCustom .qtip-titlebar{
 		padding: 6px 35px 0 10px;
 		background-color: transparent;
 	}
 
-	.qtip-tipsy2 .qtip-content{
+	.qtip-fsquickmsgCustom .qtip-content{
 		padding: 6px 10px;
 		font-weight: normal;
 	}
 	
-	.qtip-tipsy2 .qtip-icon{
+	.qtip-fsquickmsgCustom .qtip-icon{
 		border-color: #222;
 		text-shadow: none;
 	}
 
-	.qtip-tipsy2 .qtip-titlebar .ui-state-hover{
+	.qtip-fsquickmsgCustom .qtip-titlebar .ui-state-hover{
 		border-color: #303030;
 	}
 
