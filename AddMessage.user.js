@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       FallenSwordQuickMsg
-// @version    1.0
+// @version    1.01
 // @description  Script to add some quick links in a tooltip when hovering over a player's name. This will also show some data about the player.
 // @include      http://fallensword.com/*
 // @include      http://www.fallensword.com/*
