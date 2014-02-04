@@ -32,7 +32,6 @@
 		position: relative;
 		padding: 5px 9px;
 		overflow: hidden;
-		font-weight: normal;
 
 		text-align: left;
 		word-wrap: break-word;
@@ -136,7 +135,7 @@
 
 /* Add rounded corners to your tooltips in: FF3+, Chrome 2+, Opera 10.6+, IE9+, Safari 2+ */
 .qtip-rounded,
-.qtip-tipsy,
+.qtip-tipsy2,
 .qtip-bootstrap{
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -157,10 +156,8 @@
 	color: white;
 	border: 0 solid transparent;
 
-	font-size: 10px;
-	font-weight: normal;
 	font-family: 'Lucida Grande', sans-serif;
-	line-height: 13px;
+	line-height: 12px;
 }
 
 	.qtip-tipsy2 .qtip-titlebar{
