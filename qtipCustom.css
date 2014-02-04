@@ -32,6 +32,7 @@
 		position: relative;
 		padding: 5px 9px;
 		overflow: hidden;
+		font-weight: normal;
 
 		text-align: left;
 		word-wrap: break-word;
@@ -41,9 +42,9 @@
 		position: relative;
 		padding: 5px 35px 5px 10px;
 		overflow: hidden;
+		font-weight: normal;
 
 		border-width: 0 0 1px;
-		font-weight: bold;
 	}
 
 	.qtip-titlebar + .qtip-content{ border-top-width: 0 !important; }
@@ -89,7 +90,8 @@
 				line-height: 14px;
 				text-align: center;
 				text-indent: 0;
-				font: normal bold 10px/13px Tahoma,sans-serif;
+				font: normal 10px/13px Tahoma,sans-serif;
+				font-weight: normal;
 
 				color: inherit;
 				background: transparent none no-repeat -100em -100em;
