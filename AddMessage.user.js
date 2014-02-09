@@ -19,6 +19,11 @@ $( function() {
 	GM_addStyle(GM_getResourceText('qtipCSS'));
 
 	var playerProfileData = new Array();
+	var trueDomain = document.domain;
+
+	var crossOriginUrl = function(target){
+		return 'http://' + trueDomain + target;
+	}
 
 	var setContent = function(event, api){
 		var player = api.get('content.attr').split(' ');
@@ -40,10 +45,11 @@ $( function() {
 		var argumentAjax = '<div class = "' + ajaxID + '"></div>';
 
 		var isMe = false;
-		var profileURL = 'http://fallensword.com/index.php?cmd=profile&player_id=' + player[1];
+		var profileURL = crossOriginUrl('/index.php?cmd=profile&player_id=') + player[1];
+		//var profileURL = 'http://fallensword.com/index.php?cmd=profile&player_id=' + player[1];
 
 		if ($('#statbar-character').html() == player[0]){
-			profileURL = 'http://fallensword.com/index.php?cmd=profile';
+			profileURL = crossOriginUrl('/index.php?cmd=profile&player_id=');
 			isMe = true;
 		}		
 
@@ -53,9 +59,9 @@ $( function() {
 		$('.' + pID).on('click', function(){window.location.assign(profileURL);});
 		$('.' + msgID).on('click', function(){openQuickMsgDialog(player[0]); });
 		$('.' + buffID).on('click', function(){openWindow('index.php?cmd=quickbuff&t=' + player[0],'fsQuickBuff', 618, 1000,'scrollbars');});
-		$('.' + ahID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=auctionhouse&type=-3&tid=' + player[1]);});
-		$('.' + stID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=trade&subcmd=createsecure&target_username=' + player[0]);});
-		$('.' + sendID).on('click', function(){window.location.assign('http://fallensword.com/index.php?cmd=trade&target_player=' + player[0]);});
+		$('.' + ahID).on('click', function(){window.location.assign(crossOriginUrl('/index.php?cmd=auctionhouse&type=-3&tid=') + player[1]);});
+		$('.' + stID).on('click', function(){window.location.assign(crossOriginUrl('/index.php?cmd=trade&subcmd=createsecure&target_username=') + player[0]);});
+		$('.' + sendID).on('click', function(){window.location.assign(crossOriginUrl('/index.php?cmd=trade&target_player=') + player[0]);});
 
 		var ajaxContent;
 		if (playerProfileData[player[0] + player[1]] != undefined){
@@ -117,6 +123,8 @@ $( function() {
 							}
 						}
 					});
+
+//<img src="http://fileserver.huntedcow.com/avatars/2/2/8/0/6/1/6/2280616.jpg?1391498734" border="0" width="200" height="200" class="margin_5px" data-hasqtip="1" oldtitle="aa0007's Avatar" title="" aria-describedby="qtip-1">
 
 					ajaxContent = '<br/><div style = "font-size: 10.5px"><table width = "165 px">' +
 						'<tr><td>Level:</td><td><div style = "text-align: right; font-weight: normal">' + stats['Level'] + ' / ' + stats['VL'] + '</div></td></tr>' +
